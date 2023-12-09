@@ -35,7 +35,7 @@ def find_best_schedule(agenda):
     return best_programming
 
 def get_data(day):
-    with open('./schedule.json', 'r') as fp:
+    with open('./debconf/schedule.json', 'r') as fp:
         data_json = json.load(fp)
     
     return find_best_schedule(data_json[day])

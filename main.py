@@ -2,7 +2,9 @@ from event import get_data
 
 def agenda_formatada(selected_day, data):
     print("______________________________________________________________________")
-    print(selected_day)
+    print(f"    {selected_day}")
+    print("______________________________________________________________________")
+    print(f"    Hour    -   Activity ")
     print("______________________________________________________________________")
     for d in data:
         print(f"{d['horario_inicio']} - {d['horario_fim']} | {d['titulo']}")
@@ -10,7 +12,9 @@ def agenda_formatada(selected_day, data):
 
 def main():
     while True:
-        print("\Escolha o dia de evento que você quer participar:")
+        print(" ")
+        print("______________________________________________________________________")
+        print("     Escolha o dia de evento que você quer participar:")
         print("1. Monday")
         print("2. Tuesday")
         print("3. Wednesday")

@@ -1,5 +1,6 @@
 import scrapy
 import re
+import json
 
 class ScheduleSpider(scrapy.Spider):
     name = "schedule"
@@ -16,7 +17,7 @@ class ScheduleSpider(scrapy.Spider):
             if link:
                 link = link[0]
                 url = f"https://debconf23.debconf.org/schedule/{link}"
-                return scrapy.Request(url, callback=self.parse_dir_contents)
+                yield scrapy.Request(url, callback=self.parse_dir_contents)
 
     def parse_dir_contents(self, response):
         regex_pattern = re.compile(r'\((\d{2}[^)]*)\)')
@@ -46,7 +47,17 @@ class ScheduleSpider(scrapy.Spider):
                     'horario_fim': hours[hour_cont+1]
                 })
                 hour_cont = hour_cont +2
-        return schedule
-        print(schedule)
-    
-        
+        return self.save_json(schedule)
+
+    def save_json(self, schedule):
+        file_path = '../schedule.json'
+        try:
+            with open(file_path, 'r') as fp:
+                existing_data = json.load(fp)
+        except (json.JSONDecodeError, FileNotFoundError):
+            existing_data = {}
+
+        existing_data.update(schedule)
+
+        with open(file_path, 'w') as fp:
+            json.dump(existing_data, fp, indent=4)

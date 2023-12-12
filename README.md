@@ -32,17 +32,19 @@ Execute o shell script que fará a raspagem de dados:
 ```./execute_crawler.sh```
 
 Se tiver problema para executar, adicione a permissão de execução ao script:
+
 ```chmod +x execute_crawler.sh```
 
 Ao rodar o script, o programa fará a raspagem de dados para atualizar o arquivo "schedule.json".
 Não é necessário rodá-lo sempre que for usar, só na primeira vez ou quando quiser atualizar a agenda.
 
 Para executar o programa, basta executar o arquivo **main.py** na raíz:
+
 ```python3 main.py```
 
 ## Vídeo
 
-[Vídeo de apresentação]()
+[Vídeo de apresentação](https://unbbr.sharepoint.com/:v:/s/ok632/EQdvEVvUESxIqg_KwbODSjABjrkVc5YsHIAN8kIze-fbDw?e=0PjY8U&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 
 
